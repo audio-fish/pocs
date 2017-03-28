@@ -1,0 +1,14 @@
+<html>
+  <body>
+    <script src="https://cdn.jsdelivr.net/webtorrent/latest/webtorrent.min.js"></script>
+    <script>
+      var client = new WebTorrent()
+      client.add('http://127.0.0.1:8080/demo.wav.torrent', function (torrent) {
+		console.log('torrent.numPeers', torrent.numPeers);
+        // Got torrent metadata!
+        console.log('Client is downloading:', torrent.infoHash)
+        torrent.files[0].appendTo('body')
+      })
+    </script>
+  </body>
+</html>
